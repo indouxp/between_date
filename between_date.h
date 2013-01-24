@@ -1,9 +1,5 @@
 #ifndef BETWEEN_DATE_H
-typedef struct {
-	char yyyy[4];
-	char mm[2];
-	char dd[2];
-} ymd;
-
+#define	BETWEEN_DATE_H
 int between_ymd(char *from_ymd, char *to_ymd);
+int to_time_t(time_t *t_ymd, char *ymd);
 #endif

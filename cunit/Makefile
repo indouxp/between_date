@@ -6,7 +6,7 @@ $(EXE):$(SRC)
 	$(CC) -o $(EXE) $(CFLAGS) -L/usr/local/lib -L../ -lbetween_date -lcunit -I../ $(SRC)
 
 run:$(EXE)
-	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:../:/usr/local/lib
+	export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:../.:/usr/local/lib
 	@echo ${LD_LIBRARY_PATH}
 	./$(EXE)
 
