@@ -7,6 +7,7 @@
 void test_between_ymd_0010(void);
 void test_between_ymd_0020(void);
 void test_between_ymd_0030(void);
+void test_between_ymd_0040(void);
 
 int main(int argc, char *argv[])
 {
@@ -17,6 +18,7 @@ int main(int argc, char *argv[])
 	CU_add_test(between_ymd_suite, "test_0010", test_between_ymd_0010);
 	CU_add_test(between_ymd_suite, "test_0020", test_between_ymd_0020);
 	CU_add_test(between_ymd_suite, "test_0030", test_between_ymd_0030);
+	CU_add_test(between_ymd_suite, "test_0040", test_between_ymd_0040);
 
 	CU_console_run_tests();
 	CU_cleanup_registry();
@@ -25,18 +27,24 @@ int main(int argc, char *argv[])
 
 void test_between_ymd_0010(void)
 {
-	int i_rc = between_ymd("20121231", "20121231");
-	CU_ASSERT(i_rc == 0);
+	int i_response = between_ymd("20121231", "20121231");
+	CU_ASSERT(i_response == 0);
 }
 
 void test_between_ymd_0020(void)
 {
-	int i_rc = between_ymd("20121231", "20130101");
-	CU_ASSERT(i_rc == 1);
+	int i_response = between_ymd("20121231", "20130101");
+	CU_ASSERT(i_response == 1);
 }
 
 void test_between_ymd_0030(void)
 {
-	int i_rc = between_ymd("20121231", "20130131");
-	CU_ASSERT(i_rc == 31);
+	int i_response = between_ymd("20121231", "20130131");
+	CU_ASSERT(i_response == 31);
+}
+
+void test_between_ymd_0040(void)
+{
+	int i_response = between_ymd("20130101", "20121231");
+	CU_ASSERT(i_response == -1);
 }
